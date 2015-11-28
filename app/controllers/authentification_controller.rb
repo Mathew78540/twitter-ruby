@@ -7,13 +7,16 @@ class AuthentificationController < ApplicationController
   # POST /authentification/connect
   def login
 
-    if params[:account][:username].present? && params[:account][:password].present?
-      account = Account.find_by(username: params[:account][:username]).try(:authenticate, params[:account][:password])
+    username = params[:account][:username]
+    password = params[:account][:password]
+
+    if username.present? && password.present?
+      account = Account.find_by(username: username).try(:authenticate, password)
 
       if account
         session[:user_id] = account.id
         @notice = "Login successful"
-        # TODO Create session and redirect to the home page :)
+        # TODO Redirect to the home page :)
       else
         @notice = "We don't have account with this username and password"
       end
@@ -33,7 +36,7 @@ class AuthentificationController < ApplicationController
     if @account.save
       session[:account_id] = @account.id
       @notice = "Account created"
-      # TODO Create session and redirect to the home page :)
+      # TODO Redirect to the home page :)
     end
 
     render 'subscribe'
