@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # Authentification
-  get '/authentification/connect'   => 'authentification#connect'
-  post '/authentification/connect'  => 'authentification#login'
-  get '/authentification/subscribe' => 'authentification#subscribe'
+  get '/authentification/connect'    => 'authentification#connect'
+  post '/authentification/connect'   => 'authentification#login'
+  get '/authentification/subscribe'  => 'authentification#subscribe'
   post '/authentification/subscribe' => 'authentification#create'
+  get '/authentification/logout'     => 'authentification#logout'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

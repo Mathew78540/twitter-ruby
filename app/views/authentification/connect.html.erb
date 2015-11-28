@@ -1,6 +1,12 @@
 <h1>Connect</h1>
 
-<%= form_for :account, class: "subscribeForm" do |f| %>
+<!-- Messages -->
+<% if @notice %>
+  <%= @notice %>
+<% end %>
+
+<!-- Form -->
+<%= form_for :account do |f| %>
 
   <%= f.label :username, "Username" %>
   <%= f.text_field :username %> <br />

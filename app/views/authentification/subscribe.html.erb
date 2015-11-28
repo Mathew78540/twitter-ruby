@@ -27,7 +27,7 @@
 <% end %>
 
 <!-- Errors -->
-<% if @account.errors.any? %>
+<% if @account && @account.errors.any? %>
   <ul>
   <% for message_error in @account.errors.full_messages %>
     <li>* <%= message_error %></li>
