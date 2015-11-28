@@ -14,7 +14,7 @@ class AuthentificationController < ApplicationController
       account = Account.find_by(username: username).try(:authenticate, password)
 
       if account
-        session[:user_id] = account.id
+        session[:account_id] = account.id
         @notice = "Login successful"
         # TODO Redirect to the home page :)
       else
