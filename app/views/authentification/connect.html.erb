@@ -1,1 +1,13 @@
-Connect
+<h1>Connect</h1>
+
+<%= form_for :account, class: "subscribeForm" do |f| %>
+
+  <%= f.label :username, "Username" %>
+  <%= f.text_field :username %> <br />
+
+  <%= f.label :password %>
+  <%= f.password_field :password %> <br />
+
+  <%= f.submit "Connect on Twitter" %>
+
+<% end %>
