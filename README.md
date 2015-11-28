@@ -10,8 +10,6 @@
 | Mathieu Le Tyrant | Developer  |
 | Arthur Mialon | Developer  |
 
-## Getting started
-
 ## Start the server
 ```shell
 $ rails server
