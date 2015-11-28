@@ -1,6 +1,12 @@
 <h1>Subscribe</h1>
 
-<%= form_for :account, class: "subscribeForm" do |f| %>
+<!-- Messages -->
+<% if @notice %>
+  <%= @notice %>
+<% end %>
+
+<!-- Form -->
+<%= form_for :account do |f| %>
 
   <%= f.label :username, "Username" %>
   <%= f.text_field :username %> <br />
@@ -17,9 +23,14 @@
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation %> <br />
 
-  <%= f.label :email, "Email Address" %>
-  <%= f.text_field :email %> <br />
+  <%= f.submit :Signup %>
+<% end %>
 
-  <%= f.submit "Create account on twitter" %>
-
+<!-- Errors -->
+<% if @account.errors.any? %>
+  <ul>
+  <% for message_error in @account.errors.full_messages %>
+    <li>* <%= message_error %></li>
+  <% end %>
+  </ul>
 <% end %>
