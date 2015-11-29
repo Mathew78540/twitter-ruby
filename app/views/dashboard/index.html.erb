@@ -6,3 +6,11 @@
   <li>Name : <%= @current_account.firstname + ' ' + @current_account.lastname %></li>
   <li>Creation date : <%= @current_account.created_at %></li>
 </ul>
+
+<!-- Form -->
+<h2>Form for add a new Tweet !</h2>
+<%= form_for :tweet do |f| %>
+  <%= text_area(:tweet, :text, cols: 50, rows: 5) %> <br>
+
+  <%= f.submit "I tweet !" %>
+<% end %>
