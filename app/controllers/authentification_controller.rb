@@ -15,8 +15,7 @@ class AuthentificationController < ApplicationController
 
       if account
         session[:account_id] = account.id
-        @notice = "Login successful"
-        # TODO Redirect to the home page :)
+        return redirect_to '/dashboard'
       else
         @notice = "We don't have account with this username and password"
       end
@@ -35,8 +34,7 @@ class AuthentificationController < ApplicationController
 
     if @account.save
       session[:account_id] = @account.id
-      @notice = "Account created"
-      # TODO Redirect to the home page :)
+      return redirect_to '/dashboard'
     end
 
     render 'subscribe'
