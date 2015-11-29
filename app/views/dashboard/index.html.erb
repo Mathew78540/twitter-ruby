@@ -14,3 +14,12 @@
 
   <%= f.submit "I tweet !" %>
 <% end %>
+
+<!-- My Tweet -->
+<!-- TODO Create public method return all tweets create by the user and tweet by followers -->
+<h2>My Tweets</h2>
+<ul>
+<% @tweets.limit(10).each do |tweet| %>
+  <li><%= tweet.text %></li>
+<% end %>
+</ul>
