@@ -18,8 +18,11 @@
 <!-- My Tweet -->
 <!-- TODO Create public method return all tweets create by the user and tweet by followers -->
 <h2>My Tweets</h2>
-<ul>
 <% @tweets.limit(10).each do |tweet| %>
-  <li><%= tweet.text %></li>
+  <div style="border: 1px solid red; display: inline-block">
+    <h3>Tweet by : <%= tweet.account.username %></h3>
+    <p>Tweet : <%= tweet.text %></p>
+    <p>Likes : <%= tweet.likes %></p>
+    <p>Write the <%= tweet.created_at %></p>
+  </div>
 <% end %>
-</ul>
