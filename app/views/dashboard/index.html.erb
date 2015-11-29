@@ -1,1 +1,8 @@
-Dashboard
+<h1>Dashboard</h1>
+
+<h2>Account information</h2>
+<ul>
+  <li>Username : <%= @current_account.username %></li>
+  <li>Name : <%= @current_account.firstname + ' ' + @current_account.lastname %></li>
+  <li>Creation date : <%= @current_account.created_at %></li>
+</ul>
