@@ -8,3 +8,5 @@
   <li>Following : <%= @account.following.count %></li>
   <li>Follower : <%= @account.follower.count %></li>
 </ul>
+
+<a href="/account/<%= @account.id %>/follow">I want follow this user</a>
