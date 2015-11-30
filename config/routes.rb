@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # Authentification
-  get '/authentification/connect'    => 'authentification#connect'
-  post '/authentification/connect'   => 'authentification#login'
-  get '/authentification/subscribe'  => 'authentification#subscribe'
-  post '/authentification/subscribe' => 'authentification#create'
-  get '/authentification/logout'     => 'authentification#logout'
+  post '/auth/connect'   => 'auth#login'
+  post '/auth/subscribe' => 'auth#create'
+  get '/auth/logout'     => 'auth#logout'
 
   # Dashboard
   match "/dashboard" => "dashboard#index", via: [:get, :post]

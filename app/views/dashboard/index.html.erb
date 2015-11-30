@@ -20,7 +20,7 @@
 <!-- My Tweet -->
 <!-- TODO Create public method return all tweets create by the user and tweet by followers -->
 <h2>My Tweets</h2>
-<% @current_account.tweets.limit(10).each do |tweet| %>
+<% @current_account.tweet.limit(10).each do |tweet| %>
   <div style="border: 1px solid red; display: inline-block">
     <h3>Tweet by : <%= tweet.account.username %></h3>
     <p>Tweet : <%= tweet.text %></p>

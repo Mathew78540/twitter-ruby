@@ -6,39 +6,8 @@
   <%= stylesheet_link_tag 'welcome', media: 'all' %>
 </head>
 <body>
-  <header>
-    <h1>Wesh vas-y viens tweeter ma gueule ! </h1>
-  </header>
-  <div class="container">
-    <!-- Form -->
-    <%= form_for :account do |f| %>
 
-      <%= f.label :username, "Username" %>
-      <%= f.text_field :username %>
-
-      <%= f.label :firstname, "Firstname" %>
-      <%= f.text_field :firstname %>
-
-      <%= f.label :lastname, "Lastname" %>
-      <%= f.text_field :lastname %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit :Signup %>
-    <% end %>
-
-    <!-- Errors -->
-    <% if @account && @account.errors.any? %>
-      <ul>
-      <% for message_error in @account.errors.full_messages %>
-        <li>* <%= message_error %></li>
-      <% end %>
-      </ul>
-    <% end %>
-  </div>
+  <%= yield %>
+  
 </body>
 </html>
