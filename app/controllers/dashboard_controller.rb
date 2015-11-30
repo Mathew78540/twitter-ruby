@@ -7,8 +7,6 @@ class DashboardController < ApplicationController
     if request.post?
       @current_account.tweet.create(tweet_params)
     end
-
-    @tweets = @current_account.tweet
   end
 
   private
