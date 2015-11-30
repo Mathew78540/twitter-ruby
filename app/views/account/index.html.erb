@@ -1,0 +1,10 @@
+<h2>Account information</h2>
+<ul>
+  <li>Username : <%= @account.username %></li>
+  <li>Name : <%= @account.firstname + ' ' + @account.lastname %></li>
+  <li>Creation date : <%= @account.created_at %></li>
+  <li>Tweets : <%= @account.tweet.count %></li>
+  <li>Likes : <%= @account.likes.count %></li>
+  <li>Following : <%= @account.following.count %></li>
+  <li>Follower : <%= @account.follower.count %></li>
+</ul>
