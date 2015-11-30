@@ -5,6 +5,7 @@
   <li>Username : <%= @current_account.username %></li>
   <li>Name : <%= @current_account.firstname + ' ' + @current_account.lastname %></li>
   <li>Creation date : <%= @current_account.created_at %></li>
+  <li>Tweets : <%= @current_account.tweet.count %></li>
   <li>Following : <%= @current_account.following.count %></li>
   <li>Follower : <%= @current_account.follower.count %></li>
 </ul>
@@ -13,17 +14,18 @@
 <h2>Form for add a new Tweet !</h2>
 <%= form_for :tweet do |f| %>
   <%= text_area(:tweet, :text, cols: 50, rows: 5) %> <br>
-
   <%= f.submit "I tweet !" %>
 <% end %>
 
 <!-- My Tweet -->
 <!-- TODO Create public method return all tweets create by the user and tweet by followers -->
 <h2>My Tweets</h2>
-<% @current_account.tweet.limit(10).each do |tweet| %>
-  <div style="border: 1px solid red; display: inline-block">
+<% @current_account.tweet.each do |tweet| %>
+  <div style="display: block; margin-top: 5px;">
     <h3>Tweet by : <%= tweet.account.username %></h3>
     <p>Tweet : <%= tweet.text %></p>
+    <p>Likes : <%= tweet.likes.count %></p>
     <p>Write the <%= tweet.created_at %></p>
+    <a href="/tweet/<%= tweet.id %>/like" style="color: white;">Like the tweet</a>
   </div>
 <% end %>
