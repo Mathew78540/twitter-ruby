@@ -13,13 +13,15 @@ class Tweet < ActiveRecord::Base
 
       self.text.scan(/#\S+/).each do |hashtag|
 
-        hashtag_query = Hashtag.where(hashtag: hashtag)
+        the_good_hashtag = Hashtag.where(hashtag: hashtag).first
 
-        if hashtag_query.first
-          hashtag_query.increment_counter(:count, 1)
+        if the_good_hashtag
+          the_good_hashtag.count = the_good_hashtag.count + 1
+          the_good_hashtag.save
         else
           Hashtag.create(hashtag: hashtag)
         end
+
       end
 
     end

@@ -32,6 +32,15 @@
       </div>
     </div>
 
+    <div class="user">
+      <h2>Trends :</h2>
+      <% @trends.limit(10).each do |hashtag| %>
+        <%= hashtag.hashtag %>,
+      <% end %>
+    </div>
+
+
+
   </div>
 
   <div class="ct_content">
