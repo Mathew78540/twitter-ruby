@@ -1,0 +1,14 @@
+@import 'variables';
+
+.sidebar {
+  width: 20%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: $second-color;
+  color: #fff;
+  padding: 15px;
+}
+
+@import 'user';

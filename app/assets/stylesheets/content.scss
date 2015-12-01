@@ -1,0 +1,14 @@
+@import 'variables';
+
+.ct_content {
+  padding-left: 20%;
+
+  header {
+    height: 70px;
+    background: $primary-color;
+  }
+
+  .content {
+    padding: 30px;
+  }
+}

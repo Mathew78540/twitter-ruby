@@ -1,16 +1,3 @@
-<h1>Dashboard</h1>
-
-<h2>Account information</h2>
-<ul>
-  <li>Username : <%= @current_account.username %></li>
-  <li>Name : <%= @current_account.firstname + ' ' + @current_account.lastname %></li>
-  <li>Creation date : <%= @current_account.created_at %></li>
-  <li>Tweets : <%= @current_account.tweet.count %></li>
-  <li>Likes : <%= @current_account.likes.count %></li>
-  <li>Following : <%= @current_account.following.count %></li>
-  <li>Follower : <%= @current_account.follower.count %></li>
-</ul>
-
 <!-- Form -->
 <h2>Form for add a new Tweet !</h2>
 <%= form_for :tweet do |f| %>
@@ -20,6 +7,7 @@
 
 <!-- My Tweet -->
 <!-- TODO Create public method return all tweets create by the user and tweet by followers -->
+<br><br>
 <h2>My Tweets</h2>
 <% @current_account.tweet.each do |tweet| %>
   <div style="display: block; margin-top: 5px;">

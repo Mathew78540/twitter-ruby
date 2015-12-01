@@ -8,7 +8,40 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="sidebar">
+    <div class="user">
+      <div class="avatar">
+        <div class="img"></div>
+      </div>
+      <div class="infos">
+        <p><%= @current_account.firstname + ' ' + @current_account.lastname %></p>
+        <p>@<%= @current_account.username %></p>
+        <p><%= @current_account.tweet.count %> tweets</p>
+      </div>
+      <div class="clear"></div>
+      <div class="stats">
+        <div class="stats_left">
+          <p><%= @current_account.following.count %></p>
+          <h4>Following</h4>
+        </div>
+        <div class="stats_right">
+          <p><%= @current_account.follower.count %></p>
+          <h4>Followers</h4>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ct_content">
+    <header></header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
+
 
 </body>
 </html>
