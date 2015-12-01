@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   get '/account/:username'  => 'account#index'
   get '/account/:id/follow' => 'account#follow'
 
+  # Search
+  get '/search/'            => 'search#index'
+
 end

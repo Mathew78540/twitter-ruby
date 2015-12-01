@@ -10,6 +10,11 @@ class Account < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
   validates :lastname, :firstname, :presence => true
 
+  # Search Methods
+  def self.search(query)
+    where("username LIKE :search", search: "%#{query}%")
+  end
+
   def self.get_name(firstname, lastname)
     "#{firstname.capitalize} #{lastname.capitalize}"
   end

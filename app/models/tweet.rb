@@ -8,6 +8,11 @@ class Tweet < ActiveRecord::Base
 
   before_create :parse_hashtags
 
+  # Search Methods
+  def self.search(query)
+    where("text LIKE :search", search: "%#{query}%")
+  end
+
   private
     def parse_hashtags
 

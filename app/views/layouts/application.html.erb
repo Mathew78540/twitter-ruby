@@ -44,7 +44,12 @@
   </div>
 
   <div class="ct_content">
-    <header></header>
+    <header>
+      <!-- Search Form -->
+      <%= form_tag({:controller => 'search', :action => 'index'}, :method => 'get') do %>
+        <%= text_field_tag(:query, nil, placeholder: 'Search on twitter') %>
+      <% end %>
+    </header>
 
     <div class="content">
       <%= yield %>
