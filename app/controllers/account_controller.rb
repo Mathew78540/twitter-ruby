@@ -4,16 +4,15 @@ class AccountController < ApplicationController
 
   # GET /account/:username
   def index
-    @account = Account.where(username: params[:username]).first
+    @account      = Account.where(username: params[:username]).first
+    @is_following = Follow.following?(@current_account.id, @account.id)
   end
 
   # GET /account/:id/follow
   def follow
 
-    follow = Follow.where({ :follower_id => @current_account.id, :account_id => params[:id] })
-
-    if follow.present?
-      follow.destroy_all
+    if Follow.following?(@current_account.id, params[:id])
+      Follow.where({ :follower_id => @current_account.id, :account_id => params[:id] }).destroy_all
     else
       Follow.create({ :follower_id => @current_account.id, :account_id => params[:id] })
     end

@@ -9,4 +9,8 @@
   <li>Follower : <%= @account.follower.count %></li>
 </ul>
 
-<a href="/account/<%= @account.id %>/follow">I want follow this user</a>
+<% if @is_following %>
+  <a href="/account/<%= @account.id %>/follow">UnFollow <%=  @account.username %></a>
+<% else %>
+  <a href="/account/<%= @account.id %>/follow">Follow <%=  @account.username %></a>
+<% end %>
