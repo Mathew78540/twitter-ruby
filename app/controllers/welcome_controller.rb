@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 
+  layout 'special_layout'
+  
   def index
 
     # If we have a session, redirect to the dashboard :)
@@ -7,7 +9,6 @@ class WelcomeController < ApplicationController
       return redirect_to '/dashboard'
     end
 
-    render :layout => 'special_layout'
   end
 
 end

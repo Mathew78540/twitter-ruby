@@ -1,5 +1,7 @@
 class AuthController < ApplicationController
 
+  layout 'special_layout'
+
   # POST /auth/connect
   def login
 
@@ -21,14 +23,15 @@ class AuthController < ApplicationController
 
   # POST /auth/subscribe
   def create
+
     @account = Account.new(account_params)
 
     if @account.save
       session[:account_id] = @account.id
-      redirect_to '/dashboard'
-    else
-      render '/welcome/index'
+      return redirect_to '/dashboard'
     end
+
+    render '/welcome/index'
 
   end
 

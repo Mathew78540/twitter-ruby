@@ -14,7 +14,7 @@
         <div class="img"></div>
       </div>
       <div class="infos">
-        <p><%= @current_account.firstname + ' ' + @current_account.lastname %></p>
+        <p><%= Account.get_name(@current_account.firstname, @current_account.lastname) %></p>
         <p>@<%= @current_account.username %></p>
         <p><%= @current_account.tweet.count %> tweets</p>
       </div>
