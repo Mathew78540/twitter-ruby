@@ -40,6 +40,15 @@
   .text {
     padding: 15px;
     padding-top: 10px;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $second-color;
+      }
+    }
   }
 
   .infos {
@@ -71,6 +80,7 @@
     border-radius: $radius;
     padding: 5px;
     outline: none;
+    font-family: sans-serif;
   }
 
   textarea {

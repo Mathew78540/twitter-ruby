@@ -3,10 +3,20 @@
 <head>
   <title>Twitter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <% if flash[:success] %>
+    <div id="flash" class="success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div id="flash" class="error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
 
   <div class="sidebar">
     <div class="user">
@@ -33,8 +43,7 @@
     </div>
     <div class="clear"></div>
     <div class="trends">
-      <h2>Trending</h2>
-      <br>
+      <h2>Trending topics</h2>
       <% @trends.limit(10).each do |hashtag| %>
         <a href="/hashtag/<%= hashtag.hashtag.tr('#', '') %>"><%= hashtag.hashtag %></a><br>
       <% end %>
@@ -75,6 +84,6 @@
     </div>
   </div>
 
-
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
