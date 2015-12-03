@@ -9,6 +9,8 @@ class TweetController < ApplicationController
 
     if like.blank?
       Like.create({ :account_id => @current_account.id, :tweet_id => params[:id] })
+    else
+      Like.where({ :account_id => @current_account.id, :tweet_id => params[:id] }).destroy_all
     end
 
     render :json => like.count
