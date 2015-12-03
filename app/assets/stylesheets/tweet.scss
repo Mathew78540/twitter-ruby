@@ -5,6 +5,7 @@
   margin: 0 auto;
   border: 1px solid $third-color;
   width: 50%;
+  margin-bottom: 5px;
 
   .user {
     padding: 10px;
@@ -23,6 +24,10 @@
       a {
         color: #000;
         text-decoration: none;
+
+        &:hover  {
+          color: $primary-color;
+        }
       }
 
       .date_tweet {
@@ -34,6 +39,7 @@
 
   .text {
     padding: 15px;
+    padding-top: 10px;
   }
 
   .infos {
@@ -51,6 +57,9 @@
   margin: 0 auto;
   width: 50%;
   margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid $third-color;
 
   form {
     width: 100%;
@@ -60,6 +69,12 @@
     width: 100%;
     border: none;
     border-radius: $radius;
+    padding: 5px;
+    outline: none;
+  }
+
+  textarea {
+    border: 1px solid $third-color;
   }
 
   input[type="submit"] {

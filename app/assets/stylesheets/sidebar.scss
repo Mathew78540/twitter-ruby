@@ -9,6 +9,18 @@
   background: $second-color;
   color: #fff;
   padding: 15px;
+
+  .trends {
+    margin-top: 20px;
+    a {
+      color: #fff;
+      text-decoration: none;
+      color: $primary-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 @import 'user';

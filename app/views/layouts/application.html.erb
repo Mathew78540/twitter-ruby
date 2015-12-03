@@ -31,11 +31,12 @@
         <div class="clear"></div>
       </div>
     </div>
-
-    <div class="user">
-      <h2>Trends :</h2>
+    <div class="clear"></div>
+    <div class="trends">
+      <h2>Trending</h2>
+      <br>
       <% @trends.limit(10).each do |hashtag| %>
-        <a href="/hashtag/<%= hashtag.hashtag.tr('#', '') %>"><%= hashtag.hashtag %></a>,
+        <a href="/hashtag/<%= hashtag.hashtag.tr('#', '') %>"><%= hashtag.hashtag %></a><br>
       <% end %>
     </div>
 
@@ -45,18 +46,28 @@
 
   <div class="ct_content">
     <header>
+
+      <div class="logo">
+        <a href="/dashboard">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </div>
       <!-- Search Form -->
       <%= form_tag({:controller => 'search', :action => 'index'}, :method => 'get') do %>
-        <%= text_field_tag(:query, nil, placeholder: 'Search on twitter') %>
+        <p>
+          <i class="fa fa-search"></i>
+          <%= text_field_tag(:query, nil, placeholder: 'Search on twitter') %>
+        </p>
       <% end %>
+      <div class="clear"></div>
     </header>
 
     <div class="content">
       <!-- Form -->
       <div class="tweet_form">
-        <%= form_for :tweet do |f| %>
-          <%= text_area(:tweet, :text, cols: 50, rows: 5) %> <br>
-          <%= f.submit "I tweet !" %>
+        <%= form_tag({:controller => 'dashboard', :action => 'index'}, :method => 'post') do %>
+          <%= text_area(:tweet, :text, cols: 50, rows: 5, placeholder: "Your tweet") %> <br>
+          <%= submit_tag('Tweet !') %>
         <% end %>
         <div class="clear"></div>
       </div>
