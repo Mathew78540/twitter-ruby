@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Tweet
   get '/tweet/:id/like'     => 'tweet#like'
+  get '/hashtag/:query'     => 'hashtag#index'
 
   # Account
   get '/account/:username'  => 'account#index'

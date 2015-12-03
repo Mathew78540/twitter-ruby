@@ -35,7 +35,7 @@
     <div class="user">
       <h2>Trends :</h2>
       <% @trends.limit(10).each do |hashtag| %>
-        <%= hashtag.hashtag %>,
+        <a href="/hashtag/<%= hashtag.hashtag.tr('#', '') %>"><%= hashtag.hashtag %></a>,
       <% end %>
     </div>
 

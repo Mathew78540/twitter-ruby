@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   layout 'special_layout'
-  
+
   def index
 
     # If we have a session, redirect to the dashboard :)
