@@ -1,48 +1,52 @@
-.user {
-  width: 100%;
-  height: 100px;
-  margin: 0 auto;
-  padding: 10px;
 
-  .avatar {
-    float: left;
-    height: 80px;
-    width: 30%;
+.sidebar {
 
-    .img {
-      width: 80px;
+  .user {
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    padding: 10px;
+
+    .avatar {
+      float: left;
       height: 80px;
-      background: $primary-color;
+      width: 30%;
+
+      .img {
+        width: 80px;
+        height: 80px;
+        background: $primary-color;
+      }
     }
-  }
 
-  .infos {
-    padding-left: 5px;
-    float: left;
-    color: #fff;
-    line-height: 28px;
-  }
-}
-
-
-.stats {
-  width: 100%;
-  margin-top: 30px;
-
-  .stats_right, .stats_left {
-    width: 50%;
-    float: left;
-    text-align: center;
-
-    p {
+    .infos {
+      padding-left: 5px;
+      float: left;
       color: #fff;
-      font-size: 22px;
-      margin-bottom: 5px;
+      line-height: 28px;
     }
+  }
 
-    h4 {
-      color: darken($primary-color, 20%);
-      font-size: 16px;
+
+  .stats {
+    width: 100%;
+    margin-top: 30px;
+
+    .stats_right, .stats_left {
+      width: 50%;
+      float: left;
+      text-align: center;
+
+      p {
+        color: #fff;
+        font-size: 22px;
+        margin-bottom: 5px;
+      }
+
+      h4 {
+        color: darken($primary-color, 20%);
+        font-size: 16px;
+      }
     }
   }
 }

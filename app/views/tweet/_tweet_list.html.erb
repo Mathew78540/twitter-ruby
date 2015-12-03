@@ -1,0 +1,19 @@
+<div class="tweet">
+  <div class="user">
+    <div class="avatar">
+      <div class="img"></div>
+    </div>
+    <p>
+      <a href="account/<%= tweet.account.username %>">@<%= tweet.account.username %></a>
+      <span class="date_tweet">A <%= tweet.created_at %></span>
+    </p>
+  </div>
+  <div class="text">
+     <%= tweet.text %>
+  </div>
+  <div class="infos">
+    <span> <i class="fa fa-heart"></i><%= tweet.likes.count %></span>
+    <!-- <a href="/tweet/<%= tweet.id %>/like" style="color: white;">Like the tweet</a> -->
+  </div>
+
+</div>

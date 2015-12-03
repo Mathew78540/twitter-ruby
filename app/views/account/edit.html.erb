@@ -1,0 +1,10 @@
+<%= form_for @account, url: {action: "edit"} do |account_form| %>
+<%= account_form.text_field :lastname %>
+  <%= account_form.text_field :firstname %>
+
+  <%= submit_tag('Edit') %>
+<% end %>
+
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>

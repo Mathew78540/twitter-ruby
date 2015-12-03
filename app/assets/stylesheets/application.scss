@@ -11,8 +11,10 @@
  * file per style scope.
  *
  */
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import 'variables';
 @import 'reset';
 @import 'sidebar';
 @import 'content';
+@import 'tweet';

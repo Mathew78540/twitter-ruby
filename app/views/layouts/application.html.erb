@@ -52,6 +52,14 @@
     </header>
 
     <div class="content">
+      <!-- Form -->
+      <div class="tweet_form">
+        <%= form_for :tweet do |f| %>
+          <%= text_area(:tweet, :text, cols: 50, rows: 5) %> <br>
+          <%= f.submit "I tweet !" %>
+        <% end %>
+        <div class="clear"></div>
+      </div>
       <%= yield %>
     </div>
   </div>

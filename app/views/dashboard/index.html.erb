@@ -1,20 +1,4 @@
-<!-- Form -->
-<h2>Form for add a new Tweet !</h2>
-<%= form_for :tweet do |f| %>
-  <%= text_area(:tweet, :text, cols: 50, rows: 5) %> <br>
-  <%= f.submit "I tweet !" %>
-<% end %>
-
 <!-- My Tweet -->
-<!-- TODO Create public method return all tweets create by the user and tweet by followers -->
-<br><br>
-<h2>My Tweets</h2>
 <% @current_account.tweet.each do |tweet| %>
-  <div style="display: block; margin-top: 5px;">
-    <h3>Tweet by : <%= tweet.account.username %></h3>
-    <p>Tweet : <%= tweet.text %></p>
-    <p>Likes : <%= tweet.likes.count %></p>
-    <p>Write the <%= tweet.created_at %></p>
-    <a href="/tweet/<%= tweet.id %>/like" style="color: white;">Like the tweet</a>
-  </div>
+  <%= render '/tweet/tweet_list', :tweet => tweet %>
 <% end %>

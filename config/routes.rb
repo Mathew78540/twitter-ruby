@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   # Account
   get '/account/:username'  => 'account#index'
+  get '/account/:username/edit'  => 'account#edit'
+  patch '/account/:username/edit'  => 'account#update'
   get '/account/:id/follow' => 'account#follow'
 
   # Search

@@ -8,6 +8,17 @@ class AccountController < ApplicationController
     @is_following = Follow.following?(@current_account.id, @account.id)
   end
 
+  # GET /account/:username/edit
+  def edit
+    @account = @current_account
+  end
+
+  def update
+    @current_account.update_attributes(update_params)
+    flash[:success] = "Wesh ma gueule bien joué"
+    redirect_to "/account/#{@current_account.username}/edit"
+  end
+
   # GET /account/:id/follow
   def follow
 
@@ -18,6 +29,12 @@ class AccountController < ApplicationController
     end
 
     redirect_to '/dashboard'
+  end
+
+  private
+
+  def update_params
+    params.require(:account).permit(:firstname, :lastname)
   end
 
 end

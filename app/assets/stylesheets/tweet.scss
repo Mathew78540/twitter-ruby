@@ -1,0 +1,75 @@
+@import "variables";
+
+.tweet {
+  background: #fff;
+  margin: 0 auto;
+  border: 1px solid $third-color;
+  width: 50%;
+
+  .user {
+    padding: 10px;
+
+    .avatar {
+      margin-right: 10px;
+      .img {
+        width: 30px;
+        height: 30px;
+        background: $primary-color;
+      }
+      float: left;
+    }
+    p {
+      margin-top: 5px;
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      .date_tweet {
+        font-size: 12px;
+        color: $third-color;
+      }
+    }
+  }
+
+  .text {
+    padding: 15px;
+  }
+
+  .infos {
+    padding-left: 10px;
+    margin-bottom: 5px;
+    i {
+      color: #e74c3c;
+      margin-right: 5px;
+    }
+  }
+}
+
+
+.tweet_form {
+  margin: 0 auto;
+  width: 50%;
+  margin-bottom: 30px;
+
+  form {
+    width: 100%;
+  }
+
+  input, textarea {
+    width: 100%;
+    border: none;
+    border-radius: $radius;
+  }
+
+  input[type="submit"] {
+    float: right;
+    background: $primary-color;
+    color: #fff;
+    border: none;
+    width: auto;
+    border-radius: $radius;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+}
