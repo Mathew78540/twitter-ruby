@@ -44,7 +44,7 @@
     <div class="clear"></div>
     <div class="trends">
       <h2>Trending topics</h2>
-      <% @trends.limit(10).each do |hashtag| %>
+      <% @trends.limit(20).each do |hashtag| %>
         <a href="/hashtag/<%= hashtag.hashtag.tr('#', '') %>"><%= hashtag.hashtag %></a><br>
       <% end %>
     </div>
@@ -83,7 +83,7 @@
       <%= yield %>
     </div>
   </div>
-  
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
