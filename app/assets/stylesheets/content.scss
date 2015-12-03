@@ -4,10 +4,12 @@
   padding-left: 20%;
 
   header {
+    position: fixed;
     height: 70px;
     background: $primary-color;
     padding-right: 20px;
-    position: relative;
+    width: 80%;
+    top: 0;
 
     .logo {
       position: absolute;
@@ -56,6 +58,7 @@
   }
 
   .content {
+    margin-top: 70px;
     padding: 30px;
   }
 }
