@@ -38,3 +38,26 @@ flash = document.getElementById('flash');
 setTimeout( () ->
   if flash then flash.classList.add('hide_anim')
 , 3000)
+
+
+###
+# Like a tweet
+###
+
+likeATweet = (id, cb) ->
+  req = new XMLHttpRequest();
+  req.open("GET", "/tweet/#{id}/like", true);
+  req.onreadystatechange =  (evnt) ->
+    if req.readyState == 4 && req.status == 200
+      cb(req.responseText)
+
+  req.send(null);
+
+
+likes = document.querySelectorAll '.fa-heart'
+
+
+[].forEach.call likes, (like) ->
+  like.addEventListener 'click', (e) ->
+    likeATweet e.target.getAttribute('data-tweet'), (nb) ->
+      document.getElementById("count_#{e.target.getAttribute('data-tweet')}").innerHTML = nb

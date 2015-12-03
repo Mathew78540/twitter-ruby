@@ -12,7 +12,10 @@
      <%= tweet.text %>
   </div>
   <div class="infos">
-    <span> <i class="fa fa-heart"></i><%= tweet.likes.count %></span>
+    <span>
+      <i class="fa fa-heart" data-tweet="<%= tweet.id %>"></i>
+      <span id="count_<%= tweet.id %>" class="tweet_count"><%= tweet.likes.count %></span>
+    </span>
     <!-- <a href="/tweet/<%= tweet.id %>/like" style="color: white;">Like the tweet</a> -->
   </div>
 
