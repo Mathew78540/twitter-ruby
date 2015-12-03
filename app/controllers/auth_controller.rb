@@ -12,6 +12,7 @@ class AuthController < ApplicationController
       account = Account.find_by(username: username).try(:authenticate, password)
 
       if account
+        flash[:success] = "You are now connected"
         session[:account_id] = account.id
         return redirect_to '/dashboard'
       end

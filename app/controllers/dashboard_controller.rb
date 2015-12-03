@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
   def index
     if request.post?
       @current_account.tweet.create(tweet_params)
+      flash[:success] = "You are a PGM"
     end
 
     # Get all tweets
@@ -15,7 +16,6 @@ class DashboardController < ApplicationController
     @current_account.following.each do |account|
       following_ids.push(account.account_id)
     end
-
 
     # Pages
     page = if (params[:page]) then params[:page] else 1 end
