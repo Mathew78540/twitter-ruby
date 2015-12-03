@@ -2,3 +2,6 @@
 <% @tweets.each do |tweet| %>
   <%= render '/tweet/tweet_list', :tweet => tweet %>
 <% end %>
+
+<!-- Pagination -->
+<%= paginate @tweets %>

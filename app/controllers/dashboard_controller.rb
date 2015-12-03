@@ -16,7 +16,11 @@ class DashboardController < ApplicationController
       following_ids.push(account.account_id)
     end
 
-    @tweets = Tweet.where(account_id: following_ids).order('created_at DESC')
+
+    # Pages
+    page = if (params[:page]) then params[:page] else 1 end
+
+    @tweets = Tweet.where(account_id: following_ids).order('created_at DESC').page(page).per(20)
   end
 
   private
