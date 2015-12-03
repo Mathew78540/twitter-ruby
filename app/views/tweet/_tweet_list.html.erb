@@ -5,7 +5,7 @@
     </div>
     <p>
       <a href="account/<%= tweet.account.username %>">@<%= tweet.account.username %></a>
-      <span class="date_tweet">A <%= tweet.created_at %></span>
+      <span class="date_tweet"><%= distance_of_time_in_words(Time.now, tweet.created_at) %></span>
     </p>
   </div>
   <div class="text">

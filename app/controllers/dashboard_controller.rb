@@ -7,6 +7,9 @@ class DashboardController < ApplicationController
     if request.post?
       @current_account.tweet.create(tweet_params)
     end
+
+    # TODO Get all tweets from followers
+    @tweets = @current_account.tweet.order('created_at DESC')
   end
 
   private

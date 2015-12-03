@@ -1,4 +1,4 @@
 <!-- My Tweet -->
-<% @current_account.tweet.each do |tweet| %>
+<% @tweets.each do |tweet| %>
   <%= render '/tweet/tweet_list', :tweet => tweet %>
 <% end %>
