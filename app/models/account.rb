@@ -12,7 +12,7 @@ class Account < ActiveRecord::Base
 
   # Search Methods
   def self.search(query)
-    where("username LIKE :search", search: "%#{query}%")
+    where("username LIKE :search OR lastname LIKE :search OR firstname LIKE :search", search: "%#{query}%")
   end
 
   def self.get_name(firstname, lastname)
