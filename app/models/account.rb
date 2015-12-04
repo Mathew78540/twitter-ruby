@@ -2,6 +2,10 @@ class Account < ActiveRecord::Base
 
   has_secure_password
 
+  attr_accessor :avatar
+
+  mount_uploader :avatar, AvatarUploader
+
   has_many :tweet
   has_many :likes
   has_many :following, class_name: 'Follow', foreign_key: 'follower_id'

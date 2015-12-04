@@ -13,9 +13,9 @@ class AccountController < ApplicationController
     @account = @current_account
   end
 
+  # PATH /account/:username/edit
   def update
     @current_account.update_attributes(update_params)
-    flash[:success] = "Wesh ma gueule bien joué"
     redirect_to "/account/#{@current_account.username}/edit"
   end
 
@@ -34,7 +34,7 @@ class AccountController < ApplicationController
   private
 
   def update_params
-    params.require(:account).permit(:firstname, :lastname)
+    params.require(:account).permit(:firstname, :lastname, :avatar)
   end
 
 end

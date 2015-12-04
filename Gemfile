@@ -31,6 +31,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Pagination
 gem 'kaminari'
 
+# Upload
+gem 'carrierwave'
+gem 'rmagick'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
