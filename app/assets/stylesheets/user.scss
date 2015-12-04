@@ -47,6 +47,10 @@
         color: darken($primary-color, 20%);
         font-size: 16px;
       }
+
+      &:first-child {
+        border-right: 1px solid $primary-color;
+      }
     }
   }
 }

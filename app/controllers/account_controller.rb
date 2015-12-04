@@ -26,6 +26,14 @@ class AccountController < ApplicationController
     redirect_to "/account/#{@current_account.username}/edit"
   end
 
+  # GET /account/:username/following
+  def following
+  end
+
+  # GET /account/:username/followers
+  def followers
+  end
+
   # GET /account/:id/follow
   def follow
 
