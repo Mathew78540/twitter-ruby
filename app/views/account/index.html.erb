@@ -10,6 +10,7 @@
     <li>Follower : <%= @account.follower.count %></li>
   </ul>
 </div>
+
 <!-- Tweet feed -->
 <% @account.tweet.each do |tweet| %>
   <%= render '/tweet/tweet_list', :tweet => tweet %>

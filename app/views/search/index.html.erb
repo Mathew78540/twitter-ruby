@@ -1,19 +1,7 @@
-We found <%= @tweets.count %> tweets <br>
-We found <%= @accounts.count %> accounts <br>
-
-
-<div style="width: 40%; display: inline-block;">
-  <!-- Tweets -->
-  <% @tweets.each do |tweet| %>
-    <div style="display: block; margin-top: 5px;">
-      <h3>Tweet by : <%= tweet.account.username %></h3>
-      <p>Tweet : <%= tweet.text %></p>
-      <p>Likes : <%= tweet.likes.count %></p>
-      <p>Write the <%= tweet.created_at %></p>
-      <a href="/tweet/<%= tweet.id %>/like" style="color: white;">Like the tweet</a>
-    </div>
-  <% end %>
-</div>
+<!-- Tweet feed -->
+<% @tweets.each do |tweet| %>
+  <%= render '/tweet/tweet_list', :tweet => tweet %>
+<% end %>
 
 <div style="width: 40%; display: inline-block;">
   <!-- Accounts -->

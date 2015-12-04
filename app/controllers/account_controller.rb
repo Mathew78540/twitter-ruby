@@ -4,8 +4,15 @@ class AccountController < ApplicationController
 
   # GET /account/:username
   def index
-    @account      = Account.where(username: params[:username]).first
-    @is_following = Follow.following?(@current_account.id, @account.id)
+    @account = Account.where(username: params[:username]).first
+
+    if @account
+      @is_following = Follow.following?(@current_account.id, @account.id)
+    else
+      flash[:error] = "This account doesn't exist"
+      redirect_to '/dashboard'
+    end
+
   end
 
   # GET /account/:username/edit
