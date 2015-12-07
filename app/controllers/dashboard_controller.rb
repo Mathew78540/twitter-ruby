@@ -5,8 +5,15 @@ class DashboardController < ApplicationController
   # GET|POST /dashboard
   def index
     if request.post?
-      @current_account.tweet.create(tweet_params)
-      flash[:success] = "You are a PGM"
+
+      tweet = @current_account.tweet.new(tweet_params)
+
+      if tweet.save
+        flash[:success] = "You are a PGM"
+      else
+        flash[:error] = "Please enter a text"
+      end
+
     end
 
     # Get all tweets
