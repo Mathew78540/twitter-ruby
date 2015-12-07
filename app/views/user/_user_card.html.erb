@@ -22,6 +22,15 @@
               <%= account.follower.count %> followers
             </a>
         </span>
+
+        <a class="follow" href="/account/<%= account.id%>/follow", class="button_follow">
+          <i class="fa fa-user-plus"></i>
+          <% if Follow.following?(@current_account.id, account.id) %>
+            Unfollow
+          <% else %>
+            Follow
+          <% end %>
+        </a>
       </p>
     </div>
 </div>

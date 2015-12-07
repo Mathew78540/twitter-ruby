@@ -14,6 +14,7 @@
   padding: 15px;
   margin-bottom: 15px;
   border: 1px solid $third-color;
+  position: relative;
 
   a {
     color: black;
@@ -21,6 +22,19 @@
       color: $primary-color;
     }
     text-decoration: none;
+
+    &.follow {
+      padding: 5px 15px;
+      text-align: center;
+      color: #fff;
+      background: $primary-color;
+      border-radius: $radius;
+      font-size: 12px;
+      float: right;
+      position: absolute;
+      right: 10px;
+      bottom: 15px;
+    }
   }
 
   .avatar {

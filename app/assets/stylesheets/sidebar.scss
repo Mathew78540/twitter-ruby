@@ -26,6 +26,18 @@
       }
     }
   }
+
+  a.logout {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: $primary-color;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: $radius;
+    text-decoration: none;
+  }
 }
 
 @import 'user';

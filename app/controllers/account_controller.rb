@@ -45,7 +45,7 @@ class AccountController < ApplicationController
       Follow.create({ :follower_id => @current_account.id, :account_id => params[:id] })
     end
 
-    account = Account.find(params[:id]).first
+    account = Account.find(params[:id])
 
     redirect_to "/account/#{account.username}"
   end
