@@ -11,12 +11,8 @@ extract = (text, symbol) ->
 
 parsingTweet = (tweet) ->
   return tweet.split(' ').map( (text) ->
-    if text[0] == "#"
-      hashtag = extract(text, "#");
-      text = "<a href='/hashtag/#{hashtag}'>#{text}</a>"
-    else if text[0] == "@"
-      username = extract(text, "@");
-      text = "<a href='/account/#{username}'>#{text}</a>"
+    if text[0] == "#" then return "<a href='/hashtag/#{extract(text, "#")}'>#{text}</a>"
+    else if text[0] == "@" then return "<a href='/account/#{extract(text, "@")}'>#{text}</a>"
     return text;
   ).join(' ');
 
