@@ -34,6 +34,9 @@ gem 'kaminari'
 # Upload
 gem 'carrierwave'
 
+# SEO
+gem 'meta-tags'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
