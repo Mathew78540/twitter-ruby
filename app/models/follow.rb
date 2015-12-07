@@ -7,12 +7,7 @@ class Follow < ActiveRecord::Base
   belongs_to :account_follower, class_name: 'Account', foreign_key: 'follower_id'
 
   def self.following?(follower_id, account_id)
-
-    if Follow.where({:follower_id => follower_id, :account_id => account_id}).first
-      return true
-    end
-
-    return false
+    Follow.where({:follower_id => follower_id, :account_id => account_id}).first
   end
 
 end

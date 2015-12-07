@@ -30,9 +30,10 @@ class DashboardController < ApplicationController
     @tweets = Tweet.where(account_id: following_ids).order('created_at DESC').page(page).per(20)
   end
 
+  # Private methods
   private
-  def tweet_params
-    params.require(:tweet).permit(:text)
-  end
+    def tweet_params
+      params.require(:tweet).permit(:text)
+    end
 
 end
