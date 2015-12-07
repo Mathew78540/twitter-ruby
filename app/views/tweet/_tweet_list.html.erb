@@ -2,17 +2,13 @@
   <div class="user">
     <div class="avatar">
       <div class="img">
-        <% if tweet.account.avatar %>
-          <img src="<%= tweet.account.avatar %>" alt="Avatar" width="100%" height="100%">
-        <% else %>
-          <img src="<%= asset_path('avatar.png') %>" alt="Avatar" width="100%">
-        <% end %>
+        <img src="<%= tweet.account.get_avatar %>" alt="Avatar" width="100%" height="100%">
       </div>
     </div>
     <p>
       <a href="account/<%= tweet.account.username %>">
-        <%= Account.get_name(tweet.account.firstname, tweet.account.lastname) %>
-        <span>@<%= tweet.account.username %></span>
+        <%= tweet.account.get_fullname %>
+        <span><%= tweet.account.get_username %></span>
       </a>
       <span class="date_tweet"><%= distance_of_time_in_words(Time.now, tweet.created_at) %> ago</span>
     </p>

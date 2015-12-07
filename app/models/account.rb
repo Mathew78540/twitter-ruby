@@ -19,8 +19,23 @@ class Account < ActiveRecord::Base
     where("username LIKE :search OR lastname LIKE :search OR firstname LIKE :search", search: "%#{query}%")
   end
 
-  def self.get_name(firstname, lastname)
-    "#{firstname.capitalize} #{lastname.capitalize}"
+  # Get full name
+  def get_fullname
+    "#{self.firstname.capitalize} #{self.lastname.capitalize}"
+  end
+
+  # Get avatar Url
+  def get_avatar
+    if self.avatar.present?
+      self.avatar
+    else
+      "https://sigil.cupcake.io/#{self.username}"
+    end
+  end
+
+  # Get username
+  def get_username
+    "@#{self.username}"
   end
 
 end
