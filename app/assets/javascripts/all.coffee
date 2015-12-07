@@ -75,6 +75,6 @@ tweet_text = "";
 tweet_input.addEventListener 'keyup',  (e) ->
   if e.target.value.length <= 140
     tweet_text = e.target.value
-    tweet_length.innerHTML = 139 - e.target.value.length
+    tweet_length.innerHTML = 140 - e.target.value.length
   else
     e.target.value = tweet_text
