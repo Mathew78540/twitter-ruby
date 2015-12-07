@@ -26,11 +26,7 @@ class Account < ActiveRecord::Base
 
   # Get avatar Url
   def get_avatar
-    if self.avatar.present?
-      self.avatar
-    else
-      "https://sigil.cupcake.io/#{self.username}"
-    end
+    if self.avatar.present? then self.avatar else "https://sigil.cupcake.io/#{self.username}" end
   end
 
   # Get username

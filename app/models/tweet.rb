@@ -13,7 +13,10 @@ class Tweet < ActiveRecord::Base
     where("text LIKE :search", search: "%#{query}%")
   end
 
+  # Private Methods
   private
+
+    # Add all hashtags in database
     def parse_hashtags
 
       self.text.scan(/#\S+/).each do |hashtag|
