@@ -28,10 +28,12 @@ class AccountController < ApplicationController
 
   # GET /account/:username/following
   def following
+    @followings = Account.where({:username => params[:username]}).first.following
   end
 
   # GET /account/:username/followers
   def followers
+      @followers = Account.where({:username => params[:username]}).first.follower
   end
 
   # GET /account/:id/follow

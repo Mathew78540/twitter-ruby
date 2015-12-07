@@ -1,5 +1,13 @@
 @import "variables";
 
+.double {
+  .tweet {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+}
+
 .tweet {
   background: #fff;
   margin: 0 auto;
@@ -13,8 +21,8 @@
     .avatar {
       margin-right: 10px;
       .img {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         background: $primary-color;
       }
       float: left;
@@ -27,6 +35,10 @@
 
         &:hover  {
           color: $primary-color;
+        }
+
+        span {
+          font-size: 12px;
         }
       }
 

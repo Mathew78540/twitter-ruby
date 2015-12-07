@@ -12,7 +12,7 @@
     <p>
       <a href="account/<%= tweet.account.username %>">
         <%= Account.get_name(tweet.account.firstname, tweet.account.lastname) %>
-        @<%= tweet.account.username %>
+        <span>@<%= tweet.account.username %></span>
       </a>
       <span class="date_tweet"><%= distance_of_time_in_words(Time.now, tweet.created_at) %> ago</span>
     </p>

@@ -1,15 +1,5 @@
-<div class="account_info" style="position: fixed; top: 100px; left: 21%; background: #fff; padding: 15px; font-size: 12px;">
-  <h2>Account information</h2>
-  <ul>
-    <li>Username : <%= @account.username %></li>
-    <li>Name : <%= @account.firstname + ' ' + @account.lastname %></li>
-    <li>Creation date : <%= @account.created_at %></li>
-    <li>Tweets : <%= @account.tweet.count %></li>
-    <li>Likes : <%= @account.likes.count %></li>
-    <li>Following : <%= @account.following.count %></li>
-    <li>Follower : <%= @account.follower.count %></li>
-  </ul>
-</div>
+<%= render '/user/user_card', :account => @account %>
+
 
 <!-- Tweet feed -->
 <% @account.tweet.each do |tweet| %>
