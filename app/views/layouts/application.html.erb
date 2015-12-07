@@ -28,7 +28,7 @@
       <div class="infos">
         <p><a href="/account/<%= @current_account.username %>/edit"><%= @current_account.get_fullname %></a></p>
         <p><%= @current_account.get_username %></p>
-        <p><%= @current_account.tweet.count %> tweets</p>
+        <p><%= @current_account.tweet.count %> tweets & <%= @current_account.likes.count %> likes</p>
       </div>
       <div class="clear"></div>
       <div class="stats">
@@ -84,9 +84,10 @@
       <!-- Form -->
       <div class="tweet_form">
         <%= form_tag({:controller => 'dashboard', :action => 'index'}, :method => 'post') do %>
-          <%= text_area(:tweet, :text, cols: 50, rows: 5, placeholder: "Your tweet") %> <br>
+          <%= text_area(:tweet, :text, cols: 50, rows: 5, placeholder: "Your tweet", id: "input_tweet") %> <br>
           <%= submit_tag('Tweet !') %>
         <% end %>
+        <p id="tweet_length">140</p>
         <div class="clear"></div>
       </div>
       <%= yield %>

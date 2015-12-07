@@ -61,3 +61,20 @@ likes = document.querySelectorAll '.fa-heart'
   like.addEventListener 'click', (e) ->
     likeATweet e.target.getAttribute('data-tweet'), (nb) ->
       document.getElementById("count_#{e.target.getAttribute('data-tweet')}").innerHTML = nb
+
+
+
+###
+#
+###
+
+tweet_length = document.getElementById('tweet_length')
+tweet_input  = document.getElementById('input_tweet')
+tweet_text = "";
+
+tweet_input.addEventListener 'keyup',  (e) ->
+  if e.target.value.length <= 140
+    tweet_text = e.target.value
+    tweet_length.innerHTML = 139 - e.target.value.length
+  else
+    e.target.value = tweet_text
