@@ -1,13 +1,7 @@
+<!-- Display card user -->
 <%= render '/user/user_card', :account => @account %>
-
 
 <!-- Tweet feed -->
 <% @account.tweet.each do |tweet| %>
   <%= render '/tweet/tweet_list', :tweet => tweet %>
 <% end %>
-
-<!-- <% if @is_following %>
-  <a href="/account/<%= @account.id %>/follow">UnFollow <%=  @account.username %></a>
-<% else %>
-  <a href="/account/<%= @account.id %>/follow">Follow <%=  @account.username %></a>
-<% end %> -->
