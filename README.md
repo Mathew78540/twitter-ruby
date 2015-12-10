@@ -12,5 +12,6 @@
 
 ## Start the server
 ```shell
+$ bundle i
 $ rails server
 ```
