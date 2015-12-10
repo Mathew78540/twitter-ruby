@@ -61,7 +61,7 @@ likes = document.querySelectorAll '.fa-heart'
 
 
 ###
-#
+# Tweet form - Prevent 140 caracters
 ###
 
 tweet_length = document.getElementById('tweet_length')
