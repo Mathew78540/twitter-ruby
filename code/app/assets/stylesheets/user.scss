@@ -63,3 +63,29 @@
     }
   }
 }
+
+
+.edit_form_account {
+  padding: 20px;
+  background: white;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid $third-color;
+  border-radius: $radius;
+
+  input {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid $third-color;
+
+    &[type="submit"] {
+      background: $primary-color;
+      text-align: center;
+      text-transform: uppercase;
+      color: white;
+      border-radius: $radius;
+    }
+  }
+}

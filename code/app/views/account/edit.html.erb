@@ -1,11 +1,13 @@
-<%= @account.avatar %>
 
-<%= form_for @account, url: {action: "edit"}, html: {multipart: true} do |account_form| %>
+<div class="edit_form_account">
+  <img src="<%= @account.avatar %>" alt="", width="150">
+  <%= form_for @account, url: {action: "edit"}, html: {multipart: true} do |account_form| %>
 
-  <%= account_form.text_field :lastname %>
-  <%= account_form.text_field :firstname %>
+    <%= account_form.text_field :lastname %>
+    <%= account_form.text_field :firstname %>
 
-  <%= account_form.file_field :avatar, multiple: false %>
+    <%= account_form.file_field :avatar, multiple: false %>
 
-  <%= submit_tag('Edit') %>
-<% end %>
+    <%= submit_tag('Edit') %>
+  <% end %>
+</div>
