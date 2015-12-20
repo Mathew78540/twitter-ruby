@@ -6,12 +6,19 @@ class DashboardController < ApplicationController
   def index
     if request.post?
 
-      tweet = @current_account.tweet.new(tweet_params)
+      if params
+        if params[:tweet][:text].size < 140
+          tweet = @current_account.tweet.new(tweet_params)
 
-      if tweet.save
-        flash[:success] = "You are a PGM"
-      else
-        flash[:error] = "Please enter a text"
+          if tweet.save
+            flash[:success] = "You are a PGM"
+          else
+            flash[:error] = "Please enter a text"
+          end
+
+        else
+          return  flash[:error] = "Your tweet should be max 140 caracters"
+        end
       end
 
     end

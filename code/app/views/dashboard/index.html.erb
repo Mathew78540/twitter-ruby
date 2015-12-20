@@ -1,7 +1,11 @@
 <!-- Tweet feed -->
-<% @tweets.each do |tweet| %>
-  <%= render '/tweet/tweet_list', :tweet => tweet %>
+<% if @tweets %>
+  <% @tweets.each do |tweet| %>
+    <%= render '/tweet/tweet_list', :tweet => tweet %>
+  <% end %>
 <% end %>
 
 <!-- Pagination -->
-<%= paginate @tweets %>
+<% if @tweets %>
+  <%= paginate @tweets %>
+<% end %>
