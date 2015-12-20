@@ -1,0 +1,9 @@
+<!-- Form -->
+<%= form_tag({:controller => 'auth', :action => 'login'}, :method => 'post') do %>
+  <h2>Connect</h2>
+
+  <%= text_field_tag(:username, nil, placeholder: 'Username') %>
+  <%= password_field_tag(:password, nil, placeholder: 'Password') %>
+
+  <%= submit_tag('Connect') %>
+<% end %>

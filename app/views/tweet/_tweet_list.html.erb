@@ -1,0 +1,26 @@
+<div class="tweet">
+  <div class="user">
+    <div class="avatar">
+      <div class="img">
+        <img src="<%= tweet.account.get_avatar %>" alt="Avatar" width="100%" height="100%">
+      </div>
+    </div>
+    <p>
+      <a href="/account/<%= tweet.account.username %>">
+        <%= tweet.account.get_fullname %>
+        <span><%= tweet.account.get_username %></span>
+      </a>
+      <span class="date_tweet"><%= distance_of_time_in_words(Time.now, tweet.created_at) %> ago</span>
+    </p>
+  </div>
+  <div class="text">
+     <%= tweet.text %>
+  </div>
+  <div class="infos">
+    <span>
+      <i class="fa fa-heart" data-tweet="<%= tweet.id %>"></i>
+      <span id="count_<%= tweet.id %>" class="tweet_count"><%= tweet.likes.count %></span>
+    </span>
+  </div>
+
+</div>

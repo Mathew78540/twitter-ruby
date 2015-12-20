@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if flash[:success] %>
+    <div id="flash" class="success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div id="flash" class="error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <div class="sidebar">
+    <div class="user">
+      <div class="avatar">
+        <div class="img">
+          <img src="<%= @current_account.get_avatar %>" alt="Avatar" width="100%" height="100%">
+        </div>
+      </div>
+      <div class="infos">
+        <p><a href="/account/<%= @current_account.username %>/edit"><%= @current_account.get_fullname %></a></p>
+        <p><%= @current_account.get_username %></p>
+        <p><%= @current_account.tweet.count %> tweets & <%= @current_account.likes.count %> likes</p>
+      </div>
+      <div class="clear"></div>
+      <div class="stats">
+        <div class="stats_left">
+          <p>
+            <a href="/account/<%= @current_account.username %>/following"><%= @current_account.following.count %></a>
+          </p>
+          <h4>Following</h4>
+        </div>
+        <div class="stats_right">
+          <p>
+            <a href="/account/<%= @current_account.username %>/followers"><%= @current_account.follower.count %></a>
+          </p>
+          <h4>Followers</h4>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="trends">
+      <h2>Trending topics</h2>
+      <% @trends.limit(20).each do |hashtag| %>
+        <a href="/hashtag/<%= hashtag.hashtag.tr('#', '') %>"><%= hashtag.hashtag %></a><br>
+      <% end %>
+    </div>
+
+    <a class="logout" href="/auth/logout">
+      <i class="fa fa-sign-out"></i> Logout
+    </a>
+  </div>
+
+  <div class="ct_content">
+    <header>
+      <div class="title_page">
+        <% if @title %>
+          <h1> <%= @title %> </h1>
+        <% end %>
+      </div>
+      <div class="logo">
+        <a href="/dashboard">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </div>
+      <!-- Search Form -->
+      <%= form_tag({:controller => 'search', :action => 'index'}, :method => 'get') do %>
+        <p>
+          <i class="fa fa-search"></i>
+          <%= text_field_tag(:query, nil, placeholder: 'Search on twitter') %>
+        </p>
+      <% end %>
+      <div class="clear"></div>
+    </header>
+
+    <div class="content">
+      <!-- Form -->
+      <div class="tweet_form">
+        <%= form_tag({:controller => 'dashboard', :action => 'index'}, :method => 'post') do %>
+          <%= text_area(:tweet, :text, cols: 50, rows: 5, placeholder: "Your tweet", id: "input_tweet") %> <br>
+          <%= submit_tag('Tweet !') %>
+        <% end %>
+        <p id="tweet_length">140</p>
+        <div class="clear"></div>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>

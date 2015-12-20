@@ -1,0 +1,72 @@
+@import 'variables';
+
+.ct_content {
+  padding-left: 20%;
+
+  header {
+    position: fixed;
+    height: 70px;
+    background: $primary-color;
+    padding-right: 20px;
+    width: 80%;
+    top: 0;
+
+    .logo {
+      position: absolute;
+      margin: 0 auto;
+      height: 100%;
+      width: 30px;
+      height: 30px;
+      left: 50%;
+      top: 50%;
+      right: 50%;
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+
+      i {
+        color: #fff;
+        font-size: 30px;
+      }
+    }
+
+    p {
+      display: block;
+      margin-top:20px;
+      float: right;
+      input {
+        height: 30px;
+        line-height: 70px;
+        border: none;
+        background: white;
+        padding: 10px;
+        float: left;
+        width: 300px;
+        outline: none;
+      }
+
+      i {
+        height: 30px;
+        width: 30px;
+        float: left;
+        background: white;
+        color: $primary-color;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+
+    .title_page {
+      float: left;
+      height: 100%;
+      line-height: 70px;
+      margin-left: 50px;
+      color: white;
+    }
+  }
+
+  .content {
+    margin-top: 70px;
+    padding: 30px;
+  }
+}

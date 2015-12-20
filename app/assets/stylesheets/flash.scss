@@ -1,0 +1,23 @@
+#flash {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  padding: 15px 40px;
+  border-radius: $radius;
+  color: #fff;
+  transition: all 3s;
+  opacity: 1;
+
+  &.success {
+    background: #2ecc71;
+  }
+
+  &.error {
+    background: #e74c3c;
+  }
+
+  &.hide_anim {
+    top: -300px;
+    opacity: 0;
+  }
+}

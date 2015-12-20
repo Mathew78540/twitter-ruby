@@ -1,0 +1,36 @@
+<div class="user_card" style="">
+    <div class="avatar">
+      <img src="<%= account.get_avatar %>" alt="">
+    </div>
+    <div class="infos_user">
+      <p>
+        <a href="/account/<%= account.username %>">
+          <%= account.get_fullname %>
+          <span>
+            <%= account.get_username %>
+          </span>
+        </a>
+        <br>
+        <span>
+          <a href="/account/<%= account.username %>/following">
+            <%= account.following.count %> following
+          </a>
+        </span>
+        <span>-</span>
+        <span>
+            <a href="/account/<%= account.username %>/followers">
+              <%= account.follower.count %> followers
+            </a>
+        </span>
+
+        <a class="follow" href="/account/<%= account.id%>/follow", class="button_follow">
+          <i class="fa fa-user-plus"></i>
+          <% if Follow.following?(@current_account.id, account.id) %>
+            Unfollow
+          <% else %>
+            Follow
+          <% end %>
+        </a>
+      </p>
+    </div>
+</div>

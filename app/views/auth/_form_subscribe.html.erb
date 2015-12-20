@@ -1,0 +1,23 @@
+<!-- Form -->
+<%= form_tag({:controller => "auth", :action => "create"}, :method => "post") do %>
+  <h2>Inscription</h2>
+
+  <%= text_field_tag(:username, nil, placeholder: 'Username') %>
+  <%= text_field_tag(:firstname, nil, placeholder: 'Firstname') %>
+  <%= text_field_tag(:lastname, nil, placeholder: 'Lastname') %>
+  <%= password_field_tag(:password, nil, placeholder: 'Password') %>
+  <%= password_field_tag(:password_confirmation, nil, placeholder: 'Password Confirmation') %>
+
+  <%= submit_tag("Signup") %>
+<% end %>
+<!-- Errors -->
+
+<% if @account && @account.errors.any? %>
+  <div class="errors">
+    <ul>
+    <% for message_error in @account.errors.full_messages %>
+      <li>* <%= message_error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

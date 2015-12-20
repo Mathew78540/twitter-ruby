@@ -1,0 +1,7 @@
+<!-- Display card user -->
+<%= render '/user/user_card', :account => @account %>
+
+<!-- Tweet feed -->
+<% @account.tweet.each do |tweet| %>
+  <%= render '/tweet/tweet_list', :tweet => tweet %>
+<% end %>

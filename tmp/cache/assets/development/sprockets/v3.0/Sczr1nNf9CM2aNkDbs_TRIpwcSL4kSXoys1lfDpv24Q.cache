@@ -1,0 +1,87 @@
+I"Š
+/*
+ Extact # and Account from tweet text
+ */
+
+(function() {
+  var extract, flash, likeATweet, likes, parsingTweet, tweets;
+
+  extract = function(text, symbol) {
+    var hashtag, iterate;
+    hashtag = '';
+    iterate = text.split('');
+    iterate.forEach(function(letter) {
+      if (letter !== symbol) {
+        return hashtag += letter;
+      }
+    });
+    return hashtag;
+  };
+
+  parsingTweet = function(tweet) {
+    return tweet.split(' ').map(function(text) {
+      var hashtag, username;
+      if (text[0] === "#") {
+        hashtag = extract(text, "#");
+        text = "<a href='/hashtag/" + hashtag + "'>" + text + "</a>";
+      } else if (text[0] === "@") {
+        username = extract(text, "@");
+        text = "<a href='/account/" + username + "'>" + text + "</a>";
+      }
+      return text;
+    }).join(' ');
+  };
+
+  tweets = document.querySelectorAll('.tweet .text');
+
+  [].forEach.call(tweets, function(tweet) {
+    return tweet.innerHTML = parsingTweet(tweet.innerHTML);
+  });
+
+
+  /*
+    Send Like to a tweet
+   */
+
+
+  /*
+    Flash
+   */
+
+  flash = document.getElementById('flash');
+
+  setTimeout(function() {
+    if (flash) {
+      return flash.classList.add('hide_anim');
+    }
+  }, 3000);
+
+
+  /*
+   * Like a tweet
+   */
+
+  likeATweet = function(id, cb) {
+    var req;
+    req = new XMLHttpRequest();
+    req.open("GET", "/tweet/" + id + "/like", true);
+    req.onreadystatechange = function(evnt) {
+      if (req.readyState === 4 && req.status === 200) {
+        return cb(req.responseText);
+      }
+    };
+    return req.send(null);
+  };
+
+  likes = document.querySelectorAll('.fa-heart');
+
+  [].forEach.call(likes, function(like) {
+    return like.addEventListener('click', function(e) {
+      return likeATweet(e.target.getAttribute('data-tweet'), function(nb) {
+        return document.getElementById("count_" + (e.target.getAttribute('data-tweet'))).innerHTML = nb;
+      });
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,5 @@
+<!-- Display Followings to an account -->
+
+<% @followings.each do |follow| %>
+  <%= render '/user/user_card', :account => follow.account_following %>
+<% end  %>

@@ -1,0 +1,18 @@
+<!-- Tweet feed -->
+
+<div class="double">
+  <div style="width: 50%; float: left;">
+    <% @tweets.each do |tweet| %>
+      <%= render '/tweet/tweet_list', :tweet => tweet %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="double">
+  <div style="width: 50%; float: left;">
+    <% @accounts.each do |account| %>
+      <%= render '/user/user_card', :account => account %>
+    <% end %>
+  </div>
+</div>
