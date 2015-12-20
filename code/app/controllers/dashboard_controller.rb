@@ -35,6 +35,8 @@ class DashboardController < ApplicationController
     page = if (params[:page]) then params[:page] else 1 end
 
     @tweets = Tweet.where(account_id: following_ids).order('created_at DESC').page(page).per(20)
+
+    @title = "Welcome on your dashboard"
   end
 
   # Private methods

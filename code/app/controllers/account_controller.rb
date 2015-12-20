@@ -8,9 +8,11 @@ class AccountController < ApplicationController
 
     if @account
       @is_following = Follow.following?(@current_account.id, @account.id)
+      @title = "Account @" + params[:username]
     else
       flash[:error] = "This account doesn't exist"
       redirect_to '/dashboard'
+      @title = "Welcome on your dashboard"
     end
 
   end
@@ -18,6 +20,7 @@ class AccountController < ApplicationController
   # GET /account/:username/edit
   def edit
     @account = @current_account
+    @title = "Edit your profile"
   end
 
   # PATH /account/:username/edit
@@ -29,11 +32,13 @@ class AccountController < ApplicationController
   # GET /account/:username/following
   def following
     @followings = Account.where({:username => params[:username]}).first.following
+    @title = "Your followings"
   end
 
   # GET /account/:username/followers
   def followers
       @followers = Account.where({:username => params[:username]}).first.follower
+      @title = "Your followers"
   end
 
   # GET /account/:id/follow
